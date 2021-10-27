@@ -1,0 +1,23 @@
+$text-color: #fff;
+$progress-bar-color:#10cc42;
+$background-color:#000;
+$text-font: Ubuntu,
+sans-serif;
+
+$battery-radius: 15px;
+
+@mixin flex($dir, $justify, $align) {
+    display: flex;
+
+    @if $dir !=null {
+        flex-direction: $dir;
+    }
+
+    @if $justify !=null {
+        justify-content: $justify;
+    }
+
+    @if $align !=null {
+        align-items: $align;
+    }
+}

@@ -1,0 +1,65 @@
+@import "./config";
+
+body {
+    width: 100vw;
+    height: 100vh;
+    @include flex(null, center, center);
+    background-color: $background-color;
+    font-family: $text-font;
+}
+
+#container {
+    text-align: center;
+
+    h1,
+    #battery-level {
+        color: $text-color;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+#battery {
+    width: 300px;
+    height: 190px;
+    margin-top: 1rem;
+    background-color: $text-color;
+    border-radius: $battery-radius;
+    @include flex(null, center, center);
+    position: relative;
+}
+
+#progress-bar-panel {
+    width: 270px;
+    height: 160px;
+    background-color: $background-color;
+    border-radius: $battery-radius;
+    @include flex(null, center, center);
+    position: relative;
+}
+
+#progress-bar {
+    width: 10%;
+    height: 100%;
+    background-color: $progress-bar-color;
+    border-radius: $battery-radius;
+    position: absolute;
+    left: 0;
+    border: none;
+}
+
+#battery-level {
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+#plus-side {
+    width: 50px;
+    height: 70px;
+    background-color: $text-color;
+    border-radius: $battery-radius;
+    position: absolute;
+    right: -35px;
+}
