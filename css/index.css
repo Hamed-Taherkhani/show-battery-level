@@ -1,3 +1,8 @@
+* {
+  -webkit-transition: 700ms ease;
+  transition: 700ms ease;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -84,5 +89,48 @@ body {
   border-radius: 15px;
   position: absolute;
   right: -35px;
+}
+
+#charging-mode {
+  display: none;
+  width: 200px;
+  height: 30px;
+  background-color: #10cc42;
+  position: absolute;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+@-webkit-keyframes charging-animation {
+  0% {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  30% {
+    width: 15px;
+    height: 25px;
+  }
+  100% {
+    bottom: 30.7vh;
+    width: 40px;
+    border-radius: 25px;
+  }
+}
+
+@keyframes charging-animation {
+  0% {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  30% {
+    width: 15px;
+    height: 25px;
+  }
+  100% {
+    bottom: 30.7vh;
+    width: 40px;
+    border-radius: 25px;
+  }
 }
 /*# sourceMappingURL=index.css.map */
