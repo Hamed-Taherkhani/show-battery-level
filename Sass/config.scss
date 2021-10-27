@@ -5,6 +5,9 @@ $text-font: Ubuntu,
 sans-serif;
 
 $battery-radius: 15px;
+$outline-radius:30px;
+$battery-width:300px;
+$battery-height:190px;
 
 @mixin flex($dir, $justify, $align) {
     display: flex;

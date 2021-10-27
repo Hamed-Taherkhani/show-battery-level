@@ -1,6 +1,9 @@
 const levelDisplayTag = document.querySelector("#battery-level"),
   progressBarPanel = document.querySelector("#progress-bar"),
-  chargingMode = document.querySelector("#charging-mode");
+  chargingMode = document.querySelector("#charging-mode"),
+  attentionColor = "#f2cc44",
+  warningColor = "#f24444",
+  normalColor = "#10cc42";
 
 navigator
   .getBattery()
@@ -18,10 +21,16 @@ navigator
       }
     }, 300);
   })
-  .catch((err) => {});
+  .catch((err) => {
+    alert("Some thing wrong happened !!!");
+  });
 
 function showBatteryLevel(batteryLevel) {
   batteryLevel *= 100;
+  if (batteryLevel <= 10) progressBarPanel.style.backgroundColor = warningColor;
+  else if (batteryLevel < 25)
+    progressBarPanel.style.backgroundColor = attentionColor;
+  else progressBarPanel.style.backgroundColor = normalColor;
   batteryLevel += "%";
   levelDisplayTag.textContent = batteryLevel;
   progressBarPanel.style.width = batteryLevel;
