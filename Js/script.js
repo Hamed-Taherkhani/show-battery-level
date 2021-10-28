@@ -27,6 +27,7 @@ navigator
 
 function showBatteryLevel(batteryLevel) {
   batteryLevel *= 100;
+  batteryLevel = parseInt(batteryLevel);
   if (batteryLevel <= 10) progressBarPanel.style.backgroundColor = warningColor;
   else if (batteryLevel < 25)
     progressBarPanel.style.backgroundColor = attentionColor;
