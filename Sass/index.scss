@@ -79,6 +79,11 @@ body {
     z-index: -1;
 }
 
+#discharging {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: $text-color;
+}
 
 @keyframes charging-animation {
     0% {
@@ -93,7 +98,7 @@ body {
     }
 
     100% {
-        bottom: 30.7vh;
+        bottom: 35vh;
         width: 40px;
         border-radius: 25px;
 

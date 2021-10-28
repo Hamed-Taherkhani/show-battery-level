@@ -1,6 +1,7 @@
 const levelDisplayTag = document.querySelector("#battery-level"),
   progressBarPanel = document.querySelector("#progress-bar"),
   chargingMode = document.querySelector("#charging-mode"),
+  dischargingTime = document.querySelector("#discharging span"),
   attentionColor = "#f2cc44",
   warningColor = "#f24444",
   normalColor = "#10cc42";
@@ -9,7 +10,11 @@ navigator
   .getBattery()
   .then((result) => {
     showBatteryLevel(result.level);
-    result.onlevelchange = () => showBatteryLevel(result.level);
+    disChargingInterval(result.level);
+    result.onlevelchange = () => {
+      showBatteryLevel(result.level);
+      disChargingInterval(result.level);
+    };
     setInterval(() => {
       if (result.charging) {
         chargeAnimation(
@@ -19,7 +24,7 @@ navigator
       } else {
         chargeAnimation("none", "none");
       }
-    }, 300);
+    }, 800);
   })
   .catch((err) => {
     alert("Some thing wrong happened !!!");
@@ -40,4 +45,32 @@ function showBatteryLevel(batteryLevel) {
 function chargeAnimation(display, animation) {
   chargingMode.style.display = display;
   chargingMode.style.animation = animation;
+}
+
+let startPoint = 0,
+  endPoint = 0,
+  flag = false;
+function disChargingInterval(batteryLevel) {
+  batteryLevel *= 100;
+  let interval = 0,
+    date = new Date();
+  if (flag) {
+    endPoint = date.getTime();
+    interval = endPoint - startPoint;
+    interval *= parseInt(batteryLevel);
+    interval /= 1000 * 60;
+    interval = parseFloat(interval);
+
+    let hours = parseInt(interval / 60),
+      minutes = 0;
+    if (interval % 60 !== 0) {
+      minutes = parseInt(interval % 60);
+    }
+
+    let temp = "Discharging time : ";
+    if (hours !== 0) temp += `${hours}h`;
+    if (minutes !== 0) temp += `, ${minutes}m`;
+    dischargingTime.textContent = temp;
+  } else flag = true;
+  startPoint = date.getTime();
 }

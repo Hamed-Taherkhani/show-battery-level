@@ -102,6 +102,12 @@ body {
   z-index: -1;
 }
 
+#discharging {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
 @-webkit-keyframes charging-animation {
   0% {
     border-top-left-radius: 25px;
@@ -112,7 +118,7 @@ body {
     height: 25px;
   }
   100% {
-    bottom: 30.7vh;
+    bottom: 35vh;
     width: 40px;
     border-radius: 25px;
   }
@@ -128,7 +134,7 @@ body {
     height: 25px;
   }
   100% {
-    bottom: 30.7vh;
+    bottom: 35vh;
     width: 40px;
     border-radius: 25px;
   }
